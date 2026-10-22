@@ -1,4 +1,4 @@
-<img width="1755" height="710" alt="image" src="https://github.com/user-attachments/assets/26e70a1a-fc7a-4891-a05b-ed7ad7d1ce9c" /><img width="1755" height="710" alt="image" src="https://github.com/user-attachments/assets/68e3b376-489f-41b6-9b79-3d66f4a59e2d" /># Public Procurement Opportunity Intelligence & Bid Strategy Analysis
+# Public Procurement Opportunity Intelligence & Bid Strategy Analysis
 
 **A reproducible Python project for exploring historical public procurement data, profiling buyers and categories, and building a transparent foundation for supplier opportunity screening.**
 
@@ -150,7 +150,7 @@ The dashboard is historical-only. It does not show current open tenders and does
 4. In **Advanced settings**, select Python 3.11 to match the locally tested environment.
 5. Click **Deploy**. After the app launches, add its generated `https://...streamlit.app` URL here and to the project README link near the top.
 
-**Live demo:**  [Open Market Explorer](https://public-procurement-opportunity-intelligence-hzpf8nvt3r5nredrej.streamlit.app/)
+**LIVE DEMO:**  [Open Market Explorer](https://public-procurement-opportunity-intelligence-hzpf8nvt3r5nredrej.streamlit.app/)
 
 ## Data source and attribution
 
@@ -179,8 +179,7 @@ The dataset is included for reproducibility with this attribution. The code's MI
 - Human review and approval of the provisional taxonomy
 - Collect and document a bounded set of current tenders from permitted public listings/manual downloads
 - Add company profile inputs and transparent Bid / No-Bid / Manual Review logic
-- Collect and document a bounded set of current tenders from permitted public listings/manual downloads
-- Add company profile inputs and transparent Bid / No-Bid / Manual Review logic
+
 
 ## Publish this project to GitHub
 
