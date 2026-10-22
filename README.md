@@ -2,7 +2,7 @@
 
 **A reproducible Python project for exploring historical public procurement data, profiling buyers and categories, and building a transparent foundation for supplier opportunity screening.**
 
-> **Project status (honest scope):** Historical data audit, cleaning, category profiling, exploratory/business analysis, taxonomy review workflow, automated checks, and report validation are implemented. A live/current-tender ingestion pipeline, final human-approved taxonomy, company-profile bid-fit engine, and Streamlit dashboard are **not yet implemented** in this repository version.
+> **Project status (honest scope):** Historical data audit, cleaning, category profiling, exploratory/business analysis, taxonomy review workflow, automated checks, and report validation are implemented. A historical Streamlit Market Explorer is included. A live/current-tender ingestion pipeline, final human-approved taxonomy, and company-profile bid-fit engine are **not yet implemented** in this repository version.
 
 ## Why this project?
 
@@ -38,7 +38,8 @@ The 2016–17 to 2021–22 dataset is **Assam-specific and historical**. Its cat
 6. **Source consistency audit** — joins original source records with niche assignments via OCID and checks source/assignment field consistency.
 7. **Business analysis** — creates broad-category, provisional-niche, fiscal-year, buyer, tender-stage and source-classification crosswalk reports.
 8. **Report validation** — compares latest analysis outputs with underlying data and checks key-level count consistency.
-9. **Automated tests** — regression tests cover data and taxonomy helper logic, sample classifications and report consistency.
+9. **Automated tests** — regression tests cover data and taxonomy helper logic, sample classifications, report consistency, and the Market Explorer data-loading/filtering functions.
+10. **Historical Market Explorer dashboard** — a Streamlit app lets users filter historical tenders by procurement type, provisional niche, fiscal year, stage, buyer, title, and reported value; view summaries/charts; and export filtered rows as CSV.
 
 ## Selected findings
 
@@ -65,6 +66,7 @@ These figures describe the historical Assam extract only; they are not a current
 - **Python 3.11**
 - **Pandas, NumPy** — data profiling and cleaning
 - **Plotly** — interactive analytical charts
+- **Streamlit** — historical Market Explorer dashboard
 - **openpyxl** — review workbook generation
 - **pytest** — regression and validation tests
 - **Git/GitHub** — version control and portfolio publication
@@ -82,6 +84,7 @@ These figures describe the historical Assam extract only; they are not a current
 ├── src/                     # All reproducible Python scripts
 ├── tests/                   # Regression and output validation tests
 ├── assets/                  # Lightweight visual summary for the README
+├── app/                     # Streamlit Market Explorer app and data helpers
 ├── requirements.txt
 └── README.md
 ```
@@ -121,9 +124,33 @@ python src/validate_business_analysis_outputs.py
 
 # 8) Run tests
 python -m pytest tests -q
+
+# 9) Launch the historical Market Explorer
+python -m streamlit run app/market_explorer.py
 ```
 
 If Excel is open on `reports/taxonomy_review/Taxonomy_Review_Workbook.xlsx`, close it before regenerating the workbook, otherwise Windows may return `PermissionError`.
+
+## Run the Streamlit Market Explorer
+
+From the repository root, install the dependencies and launch the app:
+
+```powershell
+python -m pip install -r requirements.txt
+python -m streamlit run app/market_explorer.py
+```
+
+The dashboard is historical-only. It does not show current open tenders and does not predict profit or win probability. Niche assignments are provisional.
+
+### Deploy with Streamlit Community Cloud
+
+1. Push the `app/` folder and the updated `requirements.txt` to this public GitHub repository.
+2. Sign in at https://share.streamlit.io and connect GitHub if prompted.
+3. Click **Create app** and select repository `ayush13122/public-procurement-opportunity-intelligence`, branch `main`, and entrypoint `app/market_explorer.py`.
+4. In **Advanced settings**, select Python 3.11 to match the locally tested environment.
+5. Click **Deploy**. After the app launches, add its generated `https://...streamlit.app` URL here and to the project README link near the top.
+
+**Live demo:** Deployment pending.
 
 ## Data source and attribution
 
@@ -141,7 +168,7 @@ The dataset is included for reproducibility with this attribution. The code's MI
 
 - **Historical snapshot only:** data spans FY 2016–17 to FY 2021–22 and is not an active tender feed.
 - **Taxonomy is provisional:** source categories and titles can conflict. Mapped niches are suggestions for analysis and are not verified ground truth.
-- **No live/current data integration yet:** active/archived portal searches were manually explored during feasibility testing, but no repeatable live feed is included in this release.
+- **No live/current data integration yet:** active/archived portal searches were manually explored during feasibility testing, but no repeatable live feed is included in this release. The Streamlit app only explores the historical Assam snapshot.
 - **No win-probability claim:** there is no validated model here that estimates the probability of winning a tender.
 - **No profit prediction:** tender value does not account for delivery cost, bid price, taxes, EMD, overhead, or supplier capacity.
 - **Incomplete tender documents:** the cleaned source has very high missingness in the document ID field; eligibility must be verified from original tender documents.
@@ -152,7 +179,8 @@ The dataset is included for reproducibility with this attribution. The code's MI
 - Human review and approval of the provisional taxonomy
 - Collect and document a bounded set of current tenders from permitted public listings/manual downloads
 - Add company profile inputs and transparent Bid / No-Bid / Manual Review logic
-- Build and test the Streamlit Market Explorer and opportunity-fit dashboard
+- Collect and document a bounded set of current tenders from permitted public listings/manual downloads
+- Add company profile inputs and transparent Bid / No-Bid / Manual Review logic
 
 ## Publish this project to GitHub
 
