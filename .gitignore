@@ -1,0 +1,11 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+*.log
+# This repo intentionally contains the source ZIP for reproducibility; generated cleaned data/reports are tracked.

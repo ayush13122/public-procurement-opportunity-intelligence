@@ -1,0 +1,35 @@
+suggested_analytical_niche,mapping_method,records,unique_buyers,records_with_value,record_pct
+Construction & Civil Infrastructure,SOURCE_CLASSIFICATION,26777,62,26207,78.22
+Other / Needs Review,UNRESOLVED,2112,68,1744,6.17
+"Electrical, Energy & Utilities",SOURCE_CLASSIFICATION,1316,40,1217,3.84
+Professional & Business Services,SOURCE_CLASSIFICATION,552,56,447,1.61
+Healthcare & Laboratory,SOURCE_CLASSIFICATION,539,21,440,1.57
+Industrial Machinery & Equipment,SOURCE_CLASSIFICATION,448,29,427,1.31
+Food & Catering,SOURCE_CLASSIFICATION,390,17,286,1.14
+Office & General Supplies,SOURCE_CLASSIFICATION,274,28,227,0.8
+"Computer, Network & Electronics",SOURCE_CLASSIFICATION,268,44,240,0.78
+Agriculture & Forestry,SOURCE_CLASSIFICATION,204,19,187,0.6
+"Media, Printing & Creative Services",TITLE_KEYWORD_CANDIDATE,156,17,148,0.46
+"Media, Printing & Creative Services",SOURCE_CLASSIFICATION,149,13,142,0.44
+IT & Software Services,SOURCE_CLASSIFICATION,144,33,108,0.42
+"Water, Sanitation & Environmental Services",TITLE_KEYWORD_CANDIDATE,138,4,137,0.4
+Transport & Logistics,SOURCE_CLASSIFICATION,126,26,120,0.37
+Healthcare & Laboratory,TITLE_KEYWORD_CANDIDATE,111,15,99,0.32
+Industrial Machinery & Equipment,TITLE_KEYWORD_CANDIDATE,89,20,76,0.26
+Transport & Logistics,TITLE_KEYWORD_CANDIDATE,72,12,60,0.21
+Architecture & Technical Design,SOURCE_CLASSIFICATION,69,8,67,0.2
+Agriculture & Forestry,TITLE_KEYWORD_CANDIDATE,59,7,53,0.17
+"Computer, Network & Electronics",TITLE_KEYWORD_CANDIDATE,45,23,42,0.13
+Office & General Supplies,TITLE_KEYWORD_CANDIDATE,43,13,41,0.13
+"Electrical, Energy & Utilities",TITLE_KEYWORD_CANDIDATE,40,19,40,0.12
+Professional & Business Services,TITLE_KEYWORD_CANDIDATE,37,15,35,0.11
+Safety & Security Systems,TITLE_KEYWORD_CANDIDATE,23,10,20,0.07
+IT & Software Services,TITLE_KEYWORD_CANDIDATE,22,7,17,0.06
+"Property, Space & Facilities",TITLE_KEYWORD_CANDIDATE,13,4,10,0.04
+Construction & Civil Infrastructure,TITLE_KEYWORD_CANDIDATE,4,4,4,0.01
+Housekeeping & Facilities Services,TITLE_KEYWORD_CANDIDATE,4,2,3,0.01
+Chemicals & Industrial Materials,TITLE_KEYWORD_CANDIDATE,2,2,2,0.01
+Safety & Security Systems,SOURCE_CLASSIFICATION,2,1,2,0.01
+Architecture & Technical Design,TITLE_KEYWORD_CANDIDATE,2,2,2,0.01
+Food & Catering,TITLE_KEYWORD_CANDIDATE,1,1,1,0.0
+Other / Needs Review,TITLE_KEYWORD_CANDIDATE,1,1,1,0.0

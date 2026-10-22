@@ -1,0 +1,17 @@
+﻿tender/contractType,records,unique_buyers,unique_classifications,amount_records,zero_amount_count,positive_amount_median,record_pct
+Item Rate,19671,83,72,19066,629.0,10000000.0,57.46
+Works,7238,65,52,7055,317.0,8974000.0,21.14
+Supply,3114,71,53,2638,886.0,8550000.0,9.1
+Turn-key,1082,27,35,1001,177.0,48000000.0,3.16
+Lump-sum,1030,30,32,943,65.0,10426500.0,3.01
+Item Wise,870,42,36,813,72.0,9421981.0,2.54
+Percentage,564,15,16,561,5.0,6201018.0,1.65
+Buy,274,12,26,241,81.0,8731840.0,0.8
+EOI,270,45,25,227,99.0,10000000.0,0.79
+Empanelment,75,14,11,66,61.0,4000000.0,0.22
+Fixed-rate,17,5,7,17,2.0,6726326.0,0.05
+QCBS,14,4,3,12,9.0,1200000.0,0.04
+Multi-stage,7,3,3,7,5.0,4500001.0,0.02
+PPP-BoT-Annuity,3,2,2,3,0.0,37400000.0,0.01
+Piece-work,2,2,1,1,1.0,,0.01
+Tender cum Auction,1,1,1,1,1.0,,0.0

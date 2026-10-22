@@ -1,0 +1,12 @@
+﻿key,report_count,latest_count,difference_report_minus_latest,status
+AOC,10381,10381,0,PASS
+Bid Opening,156,156,0,PASS
+Cancelled,913,913,0,PASS
+Evaluation,62,62,0,PASS
+Financial Bid Opening,4908,4908,0,PASS
+Financial Evaluation,2289,2289,0,PASS
+Retender,176,176,0,PASS
+Technical Bid Opening,1348,1348,0,PASS
+Technical Evaluation,6519,6519,0,PASS
+To be Opened,7094,7094,0,PASS
+Unknown / Missing,386,386,0,PASS

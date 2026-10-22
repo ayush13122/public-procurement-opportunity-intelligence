@@ -1,0 +1,20 @@
+﻿key,report_count,latest_count,difference_report_minus_latest,status
+Agriculture & Forestry,263,263,0,PASS
+Architecture & Technical Design,71,71,0,PASS
+Chemicals & Industrial Materials,2,2,0,PASS
+"Computer, Network & Electronics",313,313,0,PASS
+Construction & Civil Infrastructure,26781,26781,0,PASS
+"Electrical, Energy & Utilities",1356,1356,0,PASS
+Food & Catering,391,391,0,PASS
+Healthcare & Laboratory,650,650,0,PASS
+Housekeeping & Facilities Services,4,4,0,PASS
+IT & Software Services,166,166,0,PASS
+Industrial Machinery & Equipment,537,537,0,PASS
+"Media, Printing & Creative Services",305,305,0,PASS
+Office & General Supplies,317,317,0,PASS
+Other / Needs Review,2113,2113,0,PASS
+Professional & Business Services,589,589,0,PASS
+"Property, Space & Facilities",13,13,0,PASS
+Safety & Security Systems,25,25,0,PASS
+Transport & Logistics,198,198,0,PASS
+"Water, Sanitation & Environmental Services",138,138,0,PASS

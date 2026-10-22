@@ -1,0 +1,146 @@
+﻿main_category_clean,source_classification_clean,niche_clean,report_count,latest_count,difference_report_minus_latest,status
+Works,Civil Works,Construction & Civil Infrastructure,14733,14733,0,PASS
+Works,Civil Works – Roads,Construction & Civil Infrastructure,6020,6020,0,PASS
+Works,Civil Works - Building,Construction & Civil Infrastructure,3697,3697,0,PASS
+Works,Electrical Works,"Electrical, Energy & Utilities",1108,1108,0,PASS
+Goods,Supply of Materials,Other / Needs Review,822,822,0,PASS
+Goods,Miscellaneous Goods,Other / Needs Review,679,679,0,PASS
+Works,Construction Works,Construction & Civil Infrastructure,655,655,0,PASS
+Works,Civil Works - Water Works,Construction & Civil Infrastructure,613,613,0,PASS
+Works,Civil Works - Bridges,Construction & Civil Infrastructure,422,422,0,PASS
+Goods,Machineries,Industrial Machinery & Equipment,367,367,0,PASS
+Services,Miscellaneous Services,Other / Needs Review,351,351,0,PASS
+Goods,Medical Equipments/Waste,Healthcare & Laboratory,325,325,0,PASS
+Goods,Food Products,Food & Catering,317,317,0,PASS
+Services,Consultancy,Professional & Business Services,316,316,0,PASS
+Works,Civil Works - Others,Construction & Civil Infrastructure,307,307,0,PASS
+Works,Miscellaneous Works,Other / Needs Review,259,259,0,PASS
+Works,Composite Works,Construction & Civil Infrastructure,226,226,0,PASS
+Goods,Electrical Work/ Equipment,"Electrical, Energy & Utilities",145,145,0,PASS
+Goods,Publishing/Printing,"Media, Printing & Creative Services",143,143,0,PASS
+Goods,Computer- H/W,"Computer, Network & Electronics",142,142,0,PASS
+Works,Miscellaneous Works,"Water, Sanitation & Environmental Services",133,133,0,PASS
+Services,Information Technology,IT & Software Services,116,116,0,PASS
+Goods,Medicines,Healthcare & Laboratory,115,115,0,PASS
+Services,Manpower Supply,Professional & Business Services,114,114,0,PASS
+Goods,Furniture/ Fixture,Office & General Supplies,95,95,0,PASS
+Works,Agricultural or Forestry,Agriculture & Forestry,93,93,0,PASS
+Goods,Supply of Materials,"Media, Printing & Creative Services",92,92,0,PASS
+Goods,Vehicles/Vehicle Spares,Transport & Logistics,89,89,0,PASS
+Goods,Electronics Equipment,"Computer, Network & Electronics",86,86,0,PASS
+Services,Hotel/ Catering,Food & Catering,73,73,0,PASS
+Goods,Stationery,Office & General Supplies,68,68,0,PASS
+Goods,Sports Goods/Equipments,Office & General Supplies,63,63,0,PASS
+Works,Architecture/Interior Design,Architecture & Technical Design,60,60,0,PASS
+Goods,Laboratory and scientific equipment,Healthcare & Laboratory,59,59,0,PASS
+Goods,Farm Machinery and Equipments,Agriculture & Forestry,58,58,0,PASS
+Goods,Supply of Materials,Industrial Machinery & Equipment,58,58,0,PASS
+Services,Supply/Erection/Commissioning Services,Professional & Business Services,55,55,0,PASS
+Works,Civil Works – Highways,Construction & Civil Infrastructure,50,50,0,PASS
+Goods,Uniforms/Curtains/Clothes,Office & General Supplies,48,48,0,PASS
+Goods,Miscellaneous Goods,Transport & Logistics,42,42,0,PASS
+Goods,Mechanical Engg Items,Industrial Machinery & Equipment,37,37,0,PASS
+Goods,Miscellaneous Goods,Healthcare & Laboratory,37,37,0,PASS
+Goods,Supply of Materials,Healthcare & Laboratory,36,36,0,PASS
+Works,Oil/Gas,"Electrical, Energy & Utilities",36,36,0,PASS
+Services,Repair and Maintenance Services,Professional & Business Services,35,35,0,PASS
+Goods,Crop Products,Agriculture & Forestry,34,34,0,PASS
+Goods,Miscellaneous Goods,Agriculture & Forestry,33,33,0,PASS
+Services,Housekeeping/ Cleaning,Professional & Business Services,32,32,0,PASS
+Services,Shipping/ Transportation/ Vehicle,Transport & Logistics,31,31,0,PASS
+Services,Miscellaneous Services,Healthcare & Laboratory,29,29,0,PASS
+Services,Miscellaneous Services,Professional & Business Services,29,29,0,PASS
+Goods,Miscellaneous Goods,"Media, Printing & Creative Services",26,26,0,PASS
+Goods,Supply of Materials,Agriculture & Forestry,26,26,0,PASS
+Works,Water Equipments/ Meter/ Drilling/ Boring,Industrial Machinery & Equipment,25,25,0,PASS
+Goods,Miscellaneous Goods,"Computer, Network & Electronics",24,24,0,PASS
+Services,Miscellaneous Services,Transport & Logistics,24,24,0,PASS
+Goods,Civil Construction Goods,Construction & Civil Infrastructure,23,23,0,PASS
+Goods,Miscellaneous Goods,Industrial Machinery & Equipment,21,21,0,PASS
+Goods,Consumables (Hospital / Lab),Healthcare & Laboratory,20,20,0,PASS
+Goods,Supply of Materials,Office & General Supplies,20,20,0,PASS
+Works,Miscellaneous Works,"Media, Printing & Creative Services",20,20,0,PASS
+Goods,Miscellaneous Goods,"Electrical, Energy & Utilities",17,17,0,PASS
+Goods,Supply of Materials,"Electrical, Energy & Utilities",17,17,0,PASS
+Works,Audio-Visual Equipment,"Computer, Network & Electronics",17,17,0,PASS
+Works,Network /Communication Equipments,"Computer, Network & Electronics",17,17,0,PASS
+Services,Infotech Services,IT & Software Services,16,16,0,PASS
+Services,Miscellaneous Services,"Media, Printing & Creative Services",16,16,0,PASS
+Works,Pipe Laying Works,Construction & Civil Infrastructure,16,16,0,PASS
+Goods,Miscellaneous Goods,Office & General Supplies,12,12,0,PASS
+Works,Pumps/Motors,"Electrical, Energy & Utilities",12,12,0,PASS
+Goods,Supply of Materials,"Computer, Network & Electronics",11,11,0,PASS
+Services,Miscellaneous Services,Safety & Security Systems,10,10,0,PASS
+Works,Metal Fabrication,Industrial Machinery & Equipment,10,10,0,PASS
+Goods,Suture and related products,Healthcare & Laboratory,9,9,0,PASS
+Services,Miscellaneous Services,"Computer, Network & Electronics",9,9,0,PASS
+Services,Miscellaneous Services,IT & Software Services,9,9,0,PASS
+Works,Miscellaneous Works,Industrial Machinery & Equipment,9,9,0,PASS
+Works,Street Lighting,"Electrical, Energy & Utilities",9,9,0,PASS
+Works,Survey,Architecture & Technical Design,9,9,0,PASS
+Goods,Computer- S/W,IT & Software Services,8,8,0,PASS
+Goods,Pesticide,Agriculture & Forestry,8,8,0,PASS
+Goods,Power Tiller with Trailer and Accessories,Agriculture & Forestry,8,8,0,PASS
+Services,Miscellaneous Services,Office & General Supplies,8,8,0,PASS
+Works,Civil Works – Canal,Construction & Civil Infrastructure,8,8,0,PASS
+Services,Allotment of Space,"Property, Space & Facilities",7,7,0,PASS
+Works,Civil Works – Lift Irrigation Schemes,Construction & Civil Infrastructure,7,7,0,PASS
+Works,Miscellaneous Works,IT & Software Services,7,7,0,PASS
+Works,Miscellaneous Works,Safety & Security Systems,7,7,0,PASS
+Goods,Surveillance Equipments,"Computer, Network & Electronics",6,6,0,PASS
+Works,"Documentary film,Video film","Media, Printing & Creative Services",6,6,0,PASS
+Works,Miscellaneous Works,Transport & Logistics,6,6,0,PASS
+Services,Miscellaneous Services,"Property, Space & Facilities",5,5,0,PASS
+Works,Miscellaneous Works,Professional & Business Services,5,5,0,PASS
+Works,Power/Energy Projects/Products,"Electrical, Energy & Utilities",5,5,0,PASS
+Goods,Lab Chemistry Reagents,Healthcare & Laboratory,4,4,0,PASS
+Goods,Miscellaneous Goods,"Water, Sanitation & Environmental Services",4,4,0,PASS
+Services,Machineries,Industrial Machinery & Equipment,4,4,0,PASS
+Works,Cargo / Containers,Transport & Logistics,4,4,0,PASS
+Works,Miscellaneous Works,Healthcare & Laboratory,4,4,0,PASS
+Works,Security System,Safety & Security Systems,4,4,0,PASS
+Goods,Computer- Data Processing,IT & Software Services,3,3,0,PASS
+Goods,Miscellaneous Goods,IT & Software Services,3,3,0,PASS
+Goods,Miscellaneous Goods,Professional & Business Services,3,3,0,PASS
+Goods,Supply of Materials,IT & Software Services,3,3,0,PASS
+Goods,X Ray Films,Healthcare & Laboratory,3,3,0,PASS
+Services,Miscellaneous Services,Housekeeping & Facilities Services,3,3,0,PASS
+Works,Mining,Industrial Machinery & Equipment,3,3,0,PASS
+Works,Miscellaneous Works,Office & General Supplies,3,3,0,PASS
+Works,Surgical and sutures,Healthcare & Laboratory,3,3,0,PASS
+Goods,Bio Fertiliser Production Unit,Agriculture & Forestry,2,2,0,PASS
+Services,Fire & Safety,Safety & Security Systems,2,2,0,PASS
+Services,Miscellaneous Services,Architecture & Technical Design,2,2,0,PASS
+Services,Miscellaneous Services,Construction & Civil Infrastructure,2,2,0,PASS
+Works,Coal,Construction & Civil Infrastructure,2,2,0,PASS
+Works,Entertainment/Musical Instruments,"Electrical, Energy & Utilities",2,2,0,PASS
+Works,Security System,Healthcare & Laboratory,2,2,0,PASS
+Goods,Computer- Manpower,IT & Software Services,1,1,0,PASS
+Goods,Miscellaneous Goods,Food & Catering,1,1,0,PASS
+Goods,Miscellaneous Goods,"Property, Space & Facilities",1,1,0,PASS
+Goods,Miscellaneous Goods,Safety & Security Systems,1,1,0,PASS
+Goods,Multi-crop Thresher,Healthcare & Laboratory,1,1,0,PASS
+Goods,Paddy Transplanter,Healthcare & Laboratory,1,1,0,PASS
+Goods,Supply of Materials,Chemicals & Industrial Materials,1,1,0,PASS
+Goods,Supply of Materials,Safety & Security Systems,1,1,0,PASS
+Services,Air-Conditioner,"Electrical, Energy & Utilities",1,1,0,PASS
+Services,Aviation,Transport & Logistics,1,1,0,PASS
+Services,Miscellaneous Services,"Electrical, Energy & Utilities",1,1,0,PASS
+Services,Miscellaneous Services,Industrial Machinery & Equipment,1,1,0,PASS
+Services,Miscellaneous Services,"Water, Sanitation & Environmental Services",1,1,0,PASS
+Services,Photostat Services,Healthcare & Laboratory,1,1,0,PASS
+Services,Photostat Services,"Media, Printing & Creative Services",1,1,0,PASS
+Services,Photostat Services,Other / Needs Review,1,1,0,PASS
+Works,Air Compressor,Industrial Machinery & Equipment,1,1,0,PASS
+Works,Bio-Fertilizer Production,Agriculture & Forestry,1,1,0,PASS
+Works,Chemicals/Minerals,Chemicals & Industrial Materials,1,1,0,PASS
+Works,Chemicals/Minerals,"Electrical, Energy & Utilities",1,1,0,PASS
+Works,Explosive,"Electrical, Energy & Utilities",1,1,0,PASS
+Works,Industrial/Medical GAS,Healthcare & Laboratory,1,1,0,PASS
+Works,Miscellaneous Works,"Electrical, Energy & Utilities",1,1,0,PASS
+Works,Miscellaneous Works,Housekeeping & Facilities Services,1,1,0,PASS
+Works,Packaging,"Media, Printing & Creative Services",1,1,0,PASS
+Works,Security System,"Computer, Network & Electronics",1,1,0,PASS
+Works,Textile,Other / Needs Review,1,1,0,PASS
+Works,Warehouse,Transport & Logistics,1,1,0,PASS
+Works,Weighing System,Industrial Machinery & Equipment,1,1,0,PASS

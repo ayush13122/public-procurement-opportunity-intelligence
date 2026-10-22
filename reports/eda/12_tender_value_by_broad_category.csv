@@ -1,0 +1,4 @@
+﻿tender/mainProcurementCategory,record_count,amount_present_count,amount_missing_count,amount_coverage_pct,zero_amount_count,negative_amount_count,positive_amount_count,positive_amount_median,positive_amount_mean,positive_amount_p25,positive_amount_p75,positive_amount_p90,positive_amount_max
+Works,28647,27959,688,97.6,455,0,27504,9999763.0,42191005.11591041,5891936.5,21482969.25,62253870.0,20000000000.0
+Goods,4279,3615,664,84.48,1409,0,2206,8781000.0,42757201.020398915,2149000.0,27999160.0,95000000.0,5000000000.0
+Services,1306,1078,228,82.54,546,0,532,6832152.5,57456073.733082704,2094140.0,30000000.0,100000000.0,3273066089.0

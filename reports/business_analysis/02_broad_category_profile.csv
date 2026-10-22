@@ -1,0 +1,4 @@
+﻿main_category,records,record_share_pct,unique_buyers,unique_classifications,positive_value_records,zero_value_records,missing_value_records,median_positive_value,mean_positive_value
+Works,28647,83.68,76,41,27504,455,688,9999763.0,42191005.12
+Goods,4279,12.5,83,33,2206,1409,664,8781000.0,42757201.02
+Services,1306,3.82,76,16,532,546,228,6832152.5,57456073.73

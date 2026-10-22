@@ -1,0 +1,21 @@
+{
+  "cleaned_rows": 34232,
+  "assignment_rows": 34232,
+  "joined_rows": 34232,
+  "cleaned_columns": 21,
+  "source_duplicate_ocids": 0,
+  "assignment_duplicate_ocids": 0,
+  "unmatched_assignments": 0,
+  "unique_ocids": 34232,
+  "parsed_publication_dates": 34232,
+  "positive_values": 30242,
+  "zero_values": 2410,
+  "missing_values": 1580,
+  "negative_values": 0,
+  "records_needing_niche_review": 2974,
+  "broad_category_count": 3,
+  "source_classification_count": 89,
+  "provisional_niche_count": 19,
+  "buyers_count": 101,
+  "median_positive_tender_value": 9998955.0
+}

@@ -1,0 +1,4 @@
+keyword_group,matched_records,interpretation
+Broad IT/software/computer/network/digital keywords in title + classification,501,Candidate matches only; manually validate false positives.
+Classification contains Information Technology or Computer,270,Classification screen; still needs relevance review.
+Main category = Services,1306,"All services, not necessarily IT-related."

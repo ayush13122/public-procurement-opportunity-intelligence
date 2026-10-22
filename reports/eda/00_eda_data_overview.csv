@@ -1,0 +1,13 @@
+﻿metric,value
+input_file,data/processed/assam_procurement_cleaned.csv
+records_loaded,34232
+columns_loaded_before_eda_helpers,21
+unique_ocids,34232
+duplicate_ocid_rows,0
+rows_preserved_by_eda_merge,34232
+tender_value_missing,1580
+tender_value_zero,2410
+tender_value_positive,30242
+publication_dates_parsed,34232
+opening_dates_parsed,34232
+niche_mapping_note,Provisional niche assignments merged by OCID; duplicate assignment IDs removed before merge: 0. Treat these as candidate labels pending review.

@@ -1,0 +1,35 @@
+﻿column,non_missing_count,missing_count,unique_non_missing_values,all_missing,constant_or_all_missing,exclude_from_analytical_table,reason
+ocid,34232,0,34232,False,False,False,
+initiationType,34232,0,1,False,True,True,Constant metadata: 'tender' for every record.
+tag,34232,0,1,False,True,True,Constant metadata: 'tender' for every record.
+id,34232,0,1,False,True,True,Constant export-level ID: '1' for every record; not a unique tender ID.
+date,34232,0,1,False,True,True,"Export/download date (2022-09-29), not the tender's event date."
+tender/id,34232,0,34232,False,False,False,
+tender/externalReference,34232,0,17988,False,False,False,
+tender/title,34232,0,29114,False,False,False,
+tender/mainProcurementCategory,34232,0,3,False,False,False,
+tender/procurementMethod,34232,0,6,False,False,False,
+tender/contractType,34232,0,16,False,False,False,
+tenderclassification/description,34232,0,89,False,False,False,
+tender/submissionMethodDetails,0,34232,0,True,True,True,All values are missing after normalizing missing tokens.
+tender/participationFee/0/multiCurrencyAllowed,34232,0,2,False,False,False,
+tender/allowTwoStageTender,34232,0,2,False,False,False,
+tender/value/amount,32652,1580,18926,False,False,False,
+tender/datePublished,34232,0,10467,False,False,False,
+tender/milestones/title,34232,0,1,False,True,True,Constant milestone text; not record-specific.
+tender/milestones/code,34232,0,1,False,True,True,Constant milestone text; inconsistent with milestone title and not record-specific.
+tender/milestones/type,34232,0,1,False,True,True,Constant milestone type; not record-specific.
+tender/milestones/dueDate,0,34232,0,True,True,True,All values are NA; no usable record-specific milestone date.
+tender/tenderPeriod/durationInDays,34232,0,66,False,False,False,
+tender/allowPreferentialBidder,34232,0,1,False,True,True,Only one distinct non-missing value in this extract; review before using as a feature.
+Payment Mode,34232,0,5,False,False,False,
+tender/status,0,34232,0,True,True,True,All values are NA in this export; carries no usable status information.
+tender/stage,33846,386,10,False,False,False,
+tender/numberOfTenderers,31659,2573,81,False,False,False,
+tender/milestones/type.1,34232,0,1,False,True,True,Repeated constant milestone metadata; not record-specific.
+tender/milestones/title.1,34232,0,1,False,True,True,Repeated constant milestone metadata; not record-specific.
+tender/milestones/dueDate.1,0,34232,0,True,True,True,All values are NA; no usable record-specific milestone date.
+tender/bidOpening/date,34232,0,7689,False,False,False,
+tender/documents/id,128,34104,29,False,False,False,
+buyer/name,34232,0,101,False,False,False,
+fiscal_year,34232,0,6,False,False,False,
