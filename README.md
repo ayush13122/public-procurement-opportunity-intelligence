@@ -1,4 +1,5 @@
-# Public Procurement Opportunity Intelligence & Bid Strategy Analysis
+# Public Procurement Opportunity Intelligence & Bid Strategy Analysis  
+**LIVE DEMO:**  [Open Market Explorer](https://public-procurement-opportunity-intelligence-hzpf8nvt3r5nredrej.streamlit.app/)
 
 **A reproducible Python project for exploring historical public procurement data, profiling buyers and categories, and building a transparent foundation for supplier opportunity screening.**
 
@@ -150,7 +151,7 @@ The dashboard is historical-only. It does not show current open tenders and does
 4. In **Advanced settings**, select Python 3.11 to match the locally tested environment.
 5. Click **Deploy**. After the app launches, add its generated `https://...streamlit.app` URL here and to the project README link near the top.
 
-**LIVE DEMO:**  [Open Market Explorer](https://public-procurement-opportunity-intelligence-hzpf8nvt3r5nredrej.streamlit.app/)
+
 
 ## Data source and attribution
 
