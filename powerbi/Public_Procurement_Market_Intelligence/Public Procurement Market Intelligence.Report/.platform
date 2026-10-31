@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "Public Procurement Market Intelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "07d227c7-900e-46ba-984c-5e7067ccb98c"
+  }
+}

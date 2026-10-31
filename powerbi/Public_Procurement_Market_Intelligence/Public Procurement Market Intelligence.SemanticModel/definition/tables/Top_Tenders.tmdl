@@ -1,0 +1,51 @@
+table Top_Tenders
+	lineageTag: 972e8931-b6bb-4866-930f-8c1dd51fcf01
+
+	column tender/id
+		dataType: string
+		lineageTag: 62cf9581-60b7-4da0-a3ea-4bc316ec8a4d
+		summarizeBy: none
+		sourceColumn: tender/id
+
+	column tender/title
+		dataType: string
+		lineageTag: 65d485be-b3be-4f89-8ffd-5da105a2dbb3
+		summarizeBy: none
+		sourceColumn: tender/title
+
+	column buyer/name
+		dataType: string
+		lineageTag: 2ca8c02c-422d-4f14-b7cb-652468b2a36e
+		summarizeBy: none
+		sourceColumn: buyer/name
+
+	column fiscal_year
+		dataType: string
+		lineageTag: 06d63e8a-7c96-4144-a227-6ca9123ee4b5
+		summarizeBy: none
+		sourceColumn: fiscal_year
+
+	column tender/value/amount
+		dataType: double
+		lineageTag: 0deb5f31-ccab-4bd5-916e-22e99f915232
+		summarizeBy: sum
+		sourceColumn: tender/value/amount
+
+	column ocid
+		dataType: string
+		lineageTag: eb74062b-3662-44e5-a67b-c975cd18ebd5
+		summarizeBy: none
+		sourceColumn: ocid
+
+	partition Top_Tenders = m
+		mode: import
+		source =
+				let
+				    Source = #"assam_procurement_cleaned",
+				    PositiveValues = Table.SelectRows(Source, each [#"tender/value/amount"] <> null and [#"tender/value/amount"] > 0),
+				    Sorted = Table.Sort(PositiveValues, {{"tender/value/amount", Order.Descending}, {"tender/id", Order.Ascending}}),
+				    Top10 = Table.FirstN(Sorted, 10),
+				    Selected = Table.SelectColumns(Top10, {"tender/id", "tender/title", "buyer/name", "fiscal_year", "tender/value/amount", "ocid"})
+				in
+				    Selected
+

@@ -1,0 +1,42 @@
+table Top_Buyers
+	lineageTag: 1fd7985a-0034-442c-876f-5ed4a706ee45
+
+	column buyer/name
+		dataType: string
+		lineageTag: d210c505-0485-4024-8cde-b885d1276cdf
+		summarizeBy: none
+		sourceColumn: buyer/name
+
+	column tender_records
+		dataType: int64
+		lineageTag: e13add0e-3a22-46aa-9d61-3638fd086a65
+		summarizeBy: sum
+		sourceColumn: tender_records
+
+	column broad_categories
+		dataType: int64
+		lineageTag: ec93439c-8833-4cb3-be00-be83720d93c4
+		summarizeBy: none
+		sourceColumn: broad_categories
+
+	column positive_value_records
+		dataType: int64
+		lineageTag: 45032060-9e38-4065-855a-e50ee98dcfd6
+		summarizeBy: sum
+		sourceColumn: positive_value_records
+
+	partition Top_Buyers = m
+		mode: import
+		source =
+				let
+				    Source = #"assam_procurement_cleaned",
+				    Grouped = Table.Group(Source, {"buyer/name"}, {
+				        {"tender_records", each Table.RowCount(_), Int64.Type},
+				        {"broad_categories", each List.Count(List.Distinct(List.RemoveNulls(Table.Column(_, "tender/mainProcurementCategory")))), Int64.Type},
+				        {"positive_value_records", each Table.RowCount(Table.SelectRows(_, each [#"tender/value/amount"] <> null and [#"tender/value/amount"] > 0)), Int64.Type}
+				    }),
+				    Sorted = Table.Sort(Grouped, {{"tender_records", Order.Descending}, {"buyer/name", Order.Ascending}}),
+				    Top10 = Table.FirstN(Sorted, 10)
+				in
+				    Top10
+

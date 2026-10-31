@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Public Procurement Market Intelligence"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "64d57deb-1063-4cf0-8b3a-cf4d534f4a73"
+  }
+}

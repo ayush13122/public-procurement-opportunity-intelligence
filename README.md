@@ -1,201 +1,208 @@
-# Public Procurement Opportunity Intelligence & Bid Strategy Analysis  
-**LIVE DEMO:**  [Open Market Explorer](https://public-procurement-opportunity-intelligence-hzpf8nvt3r5nredrej.streamlit.app/)
+# AI-Powered Public Procurement Intelligence Platform
 
-**A reproducible Python project for exploring historical public procurement data, profiling buyers and categories, and building a transparent foundation for supplier opportunity screening.**
+A reproducible Python project that combines historical procurement analytics, an ML tender-category classifier, a document-grounded tender Q&A copilot, and an explainable rule-based company Bid-Fit screen.
 
-> **Project status (honest scope):** Historical data audit, cleaning, category profiling, exploratory/business analysis, taxonomy review workflow, automated checks, and report validation are implemented. A historical Streamlit Market Explorer is included. A live/current-tender ingestion pipeline, final human-approved taxonomy, and company-profile bid-fit engine are **not yet implemented** in this repository version.
+> **Scope note:** This is a portfolio/prototype decision-support tool. It is not an official tender portal, legal eligibility opinion, tender-win prediction model, or guaranteed-profit calculator. Historical analysis is based on an Assam dataset for FY 2016–17 to FY 2021–22. Current tender discovery/status revalidation and automatic extraction of all tender formats are not implemented.
 
-## Why this project?
+## Repository navigation
 
-B2B suppliers often face many procurement notices and need a structured way to understand which categories and buyer organizations appear frequently. This project turns a historical Assam procurement dataset into repeatable analytical outputs so a business-development team can explore recorded activity, inspect missingness and category quality, and form evidence-backed hypotheses for further research.
+For a map of the complete project tree and where the original cleaning, EDA, taxonomy, ML, Copilot and Bid-Fit work lives, see [`docs/PROJECT_FILE_INDEX.md`](docs/PROJECT_FILE_INDEX.md). Historical early-stage planning documents are kept under `docs/project_history/` and are clearly marked as historical.
 
-It is a decision-support analysis project—not an automated bid submission system and not a model that predicts tender wins.
+## What the project does
 
-## Key dataset and pipeline facts
+### 1. Historical Procurement Market Explorer
 
-| Item | Result from the current run |
+- Audits and cleans the historical Assam public-procurement dataset.
+- Profiles broad procurement categories, source classifications, buyers, recorded stages, values, fiscal years, and missingness.
+- Provides interactive filters and a tender-record table in Streamlit.
+- Keeps provisional niche mapping separate from the original source classification.
+
+### 2. ML Tender Category Classifier
+
+- Uses tender title text to classify records into `Works`, `Goods`, or `Services`.
+- Pipeline: TF-IDF text features + Logistic Regression.
+- Uses chronological evaluation with FY 2021–22 held out from earlier fiscal years.
+- Writes metrics, per-class metrics, a confusion matrix, and row-level test predictions under `reports/ml/`.
+- The score shown for a prediction is uncalibrated and is **not** a probability of eligibility, winning, or profit.
+
+Latest recorded baseline (reproduce with the command below):
+
+| Metric | Result |
 |---|---:|
-| Historical procurement records | 34,232 |
+| Training rows | 29,542 |
+| Held-out test rows | 4,690 |
+| Accuracy | 93.35% |
+| Macro F1 | 86.73% |
+| Weighted F1 | 93.66% |
+| Balanced accuracy | 91.55% |
+
+These figures describe this historical Assam dataset and its source labels, not all-India performance. Some normalized tender titles repeat across years, so the holdout can still contain template similarity. See `docs/ML_BROAD_CATEGORY_CLASSIFIER.md` and `reports/ml/` for details.
+
+### 3. AI Tender Document Copilot
+
+- Accepts PDF tender notices and eligibility documents. Selectable text is extracted directly; scanned/image-based pages can use optional Tesseract OCR (see `docs/TENDER_SCANNED_PDF_OCR.md`).
+- Extracts text page-by-page, chunks it, builds a local TF-IDF retrieval index, and finds relevant passages for the user's question.
+- Displays source passages with original PDF page numbers.
+- Optional OpenAI and Gemini integrations support selected AI-assisted answer-generation and tender-extraction workflows. Local retrieval and rule-based extraction provide a fallback when an API is unavailable, unconfigured, or rate-limited.
+- Includes a first **Copilot-to-Bid-Fit draft handoff**: a local rule-based parser suggests common tender fields with page evidence; the user can review/edit the draft and send it to the Bid-Fit page for prefill. This field extraction does not require an LLM API.
+- Uses `assets/demo_synthetic_tender_notice.pdf` for local testing. This is a fictional demo, not a real tender.
+
+OCR is optional and depends on Tesseract and the project OCR dependencies. OCR output can contain recognition errors; verify extracted clauses against the original PDF. AI-generated answers can be wrong and must be checked against cited evidence. Provider-backed workflows may send relevant prompts and document excerpts to the configured provider. Do not upload confidential documents unless authorised.
+
+### 4. Company Bid-Fit Analysis
+
+- Compares a user-entered company profile against tender requirements.
+- Provides an explainable, criterion-by-criterion score and one of `POTENTIAL BID`, `MANUAL REVIEW`, or `NO-BID`.
+- Missing/unverified information routes to `MANUAL REVIEW`; a hard fail should only drive `NO-BID` when the user has confirmed the profile, reviewed the mandatory requirements, and checked the official source.
+- Score is a rule-based fit score for entered fields. It is **not** a win probability and does not prove profitability.
+
+Current limitation: Copilot can prefill a reviewed draft of some tender fields, but unsupported/missing fields remain blank and must be entered manually. The Bid-Fit engine does not verify that the uploaded PDF is official, confirm current portal status, calculate profit, or submit bids.
+
+## Power BI Market Intelligence Dashboard
+
+The repository includes both the Power BI report and its editable project source.
+
+- Ready-to-open report: [`Public_Procurement_Market_Intelligence.pbix`](powerbi/exports/Public_Procurement_Market_Intelligence.pbix)
+- Editable PBIP project: [`Power BI project folder`](powerbi/Public_Procurement_Market_Intelligence/)
+- The PBIP source includes report definitions, semantic model definitions, and project documentation.
+- Machine-specific `.pbi` cache files are excluded from version control.
+## Historical dataset snapshot
+
+| Item | Latest audited result |
+|---|---:|
+| Historical records | 34,232 |
 | Original source columns | 34 |
 | Analytical columns after cleaning | 21 |
 | Unique OCIDs | 34,232 |
 | Duplicate OCID rows | 0 |
-| Broad procurement categories | 3: Works, Goods, Services |
-| Detailed source classifications | 89 |
-| Original categories with most records | Works: 28,647 (83.68%) |
-| Tender value data | 30,242 positive; 2,410 zero; 1,580 missing/non-numeric |
-| Current taxonomy | Provisional, with records explicitly flagged for review |
-| Automated validation | 42 project tests passed; 8 business-report comparisons passed in the prepared run |
+| Broad source categories | Works: 28,647; Goods: 4,279; Services: 1,306 |
+| Detailed original classifications | 89 |
+| Tender-value field | 30,242 positive; 2,410 zero; 1,580 missing/non-numeric |
+| Provisional taxonomy | Rule-based analytical mapping; labels remain provisional and require review |
+| Records flagged for review | 2,974 |
 
-The 2016–17 to 2021–22 dataset is **Assam-specific and historical**. Its category distribution must not be generalized to all Indian procurement. A reported tender value is not profit, and historical records are not currently open opportunities.
-
-## What is implemented?
-
-1. **Source audit** — inspects the six CSV files in the source ZIP, schemas, year coverage, column quality, and keyword candidates.
-2. **Data cleaning** — preserves all 34,232 source rows, removes repeated/constant metadata from the analytical table, standardizes missing-value handling, parses numeric tender values, and writes a cleaned CSV plus quality reports.
-3. **Category profiling & provisional niche mapping** — retains the original broad category and source classification while suggesting broader analytical niches. Specific title rules are guarded by regression tests; ambiguous records remain reviewable.
-4. **Exploratory data analysis** — profiles categories, classifications, publication dates, tender values, stages, bidder counts, buyers, and missingness; creates CSV reports and interactive Plotly HTML charts.
-5. **Taxonomy review pack** — creates review queues and an Excel sign-off workbook. Suggestions are explicitly not treated as ground truth until reviewed.
-6. **Source consistency audit** — joins original source records with niche assignments via OCID and checks source/assignment field consistency.
-7. **Business analysis** — creates broad-category, provisional-niche, fiscal-year, buyer, tender-stage and source-classification crosswalk reports.
-8. **Report validation** — compares latest analysis outputs with underlying data and checks key-level count consistency.
-9. **Automated tests** — regression tests cover data and taxonomy helper logic, sample classifications, report consistency, and the Market Explorer data-loading/filtering functions.
-10. **Historical Market Explorer dashboard** — a Streamlit app lets users filter historical tenders by procurement type, provisional niche, fiscal year, stage, buyer, title, and reported value; view summaries/charts; and export filtered rows as CSV.
-
-## Selected findings
-
-- The broad category distribution is highly imbalanced toward **Works**: 28,647 records, compared with 4,279 Goods and 1,306 Services.
-- `tender/documents/id` is missing for about 99.6% of records in the cleaned snapshot, limiting document-level eligibility analysis from this file alone.
-- Tender value should be treated carefully: zeros and missing values are separate groups, and the available field does not provide supplier costs or profit.
-- Initial keyword mapping produced false positives (for example, word fragments inside unrelated words), so rules were refined and regression tests added.
-- At the latest observed run, source-classification-based assignments, title-keyword candidates and unresolved cases were kept distinct. Exact counts can change if taxonomy rules change; rerun the scripts to regenerate current reports.
+Taxonomy mapping coverage is not classification accuracy. Currency/unit of reported tender values has not been independently verified, and tender value is not supplier revenue or profit.
 
 ## Visual snapshot
 
-### Procurement activity by broad category
+### Historical procurement activity by category
 
-![Historical procurement records by broad category](assets/category_distribution.png)
+![Procurement activity by broad category](assets/category_distribution.png)
 
-### Recorded tenders by fiscal year
+### Historical tender records by fiscal year
 
 ![Historical tender records by fiscal year](assets/fiscal_year_trend.png)
+## Run locally (Windows PowerShell)
 
-These figures describe the historical Assam extract only; they are not a current opportunity count or India-wide market estimate.
-
-## Technology stack
-
-- **Python 3.11**
-- **Pandas, NumPy** — data profiling and cleaning
-- **Plotly** — interactive analytical charts
-- **Streamlit** — historical Market Explorer dashboard
-- **openpyxl** — review workbook generation
-- **pytest** — regression and validation tests
-- **Git/GitHub** — version control and portfolio publication
-
-## Repository structure
-
-```text
-.
-├── data/
-│   ├── raw/                 # Original source ZIP
-│   ├── processed/           # Reproducible cleaned CSV generated by scripts
-│   └── metadata/            # Source register and license/provenance details
-├── docs/                    # Methodology, decisions, limitations, interview notes
-├── reports/                 # Generated audit, EDA, taxonomy, and business outputs
-├── src/                     # All reproducible Python scripts
-├── tests/                   # Regression and output validation tests
-├── assets/                  # Lightweight visual summary for the README
-├── app/                     # Streamlit Market Explorer app and data helpers
-├── requirements.txt
-└── README.md
-```
-
-## Run it locally (Windows PowerShell)
-
-Python 3.11 is recommended for the reproduced environment.
+Python 3.11 is the recommended environment.
 
 ```powershell
-# 1) Create and activate a virtual environment
+# From the repository root
 py -3.11 -m venv .venv
 .\.venv\Scripts\Activate.ps1
-
-# 2) Install dependencies
 python -m pip install -r requirements.txt
 
-# 3) Verify environment
+# Optional: Gemini API integration
+python -m pip install -r requirements-gemini.txt
+
+# Optional: scanned PDF OCR
+python -m pip install -r requirements-ocr.txt
+
+# Tesseract OCR desktop software must also be installed separately.
+
+# Rebuild historical procurement analysis
 python src/check_environment.py
-
-# 4) Audit source archive
 python src/audit_assam_procurement.py
-
-# 5) Clean and profile records
 python src/clean_assam_procurement.py
 python src/profile_procurement_categories.py
-
-# 6) Generate EDA and taxonomy review outputs
 python src/run_procurement_eda.py
 python src/review_niche_taxonomy.py
 python src/prepare_taxonomy_signoff.py
 python src/audit_source_classification_consistency.py
 python src/audit_taxonomy_workbook.py
-
-# 7) Generate business analysis and validate report outputs
 python src/analyze_procurement_business.py
 python src/validate_business_analysis_outputs.py
-
-# 8) Run tests
+# Run tests
 python -m pytest tests -q
 
-# 9) Launch the historical Market Explorer
+# Train/recreate the broad-category model and its reports
+python src/train_procurement_category_model.py
+
+# Launch all Streamlit pages
 python -m streamlit run app/market_explorer.py
 ```
 
-If Excel is open on `reports/taxonomy_review/Taxonomy_Review_Workbook.xlsx`, close it before regenerating the workbook, otherwise Windows may return `PermissionError`.
+Streamlit opens a local address, normally `http://localhost:8501`. The app navigation contains the Historical Market Explorer, ML Tender Category Classifier, AI Tender Document Copilot, and Company Bid-Fit Analysis pages.
 
-## Run the Streamlit Market Explorer
+Latest local verification: **210 tests passed** (`python -m pytest tests -q`). Re-run the suite after changes.
 
-From the repository root, install the dependencies and launch the app:
+### Optional: Enable LLM-generated answers
 
-```powershell
-python -m pip install -r requirements.txt
-python -m streamlit run app/market_explorer.py
+1. Copy `.env.example` to `.env` in the project root.
+2. Configure `OPENAI_API_KEY` and/or `GEMINI_API_KEY` as required by the selected workflow. Set the corresponding model variables to models available to your API account.
+3. Restart Streamlit.
+4. Never commit `.env` or publish secrets. API calls can incur costs. Local PDF extraction and evidence retrieval still work without an API key.
+
+## Repository layout
+
+```text
+app/
+  market_explorer.py                 # Main Streamlit app and historical dashboard
+  market_explorer_data.py            # Dashboard data loading/filtering
+  category_prediction.py             # ML prediction helper
+  tender_copilot.py                  # PDF extraction, retrieval, optional LLM answer
+  tender_requirements_extractor.py   # Conservative rule-based draft extraction with page evidence
+  bid_fit_engine.py                  # Explainable rule-based Bid-Fit logic
+  pages/                             # ML, Copilot, and Bid-Fit pages
+src/                                  # Audits, data cleaning, EDA, ML training scripts
+data/raw/                            # Original source ZIP
+data/processed/                     # Cleaned analytical dataset
+reports/                              # EDA, validation, business analysis, ML results
+docs/                                 # Methodology, limitations, module details
+assets/                               # Charts and fictional demo PDF
+tests/                                # Regression, ML-helper, copilot and Bid-Fit tests
+requirements.txt
 ```
 
-The dashboard is historical-only. It does not show current open tenders and does not predict profit or win probability. Niche assignments are provisional.
+## Technology stack
 
-### Deploy with Streamlit Community Cloud
+| Area | Technologies |
+|---|---|
+| Language | Python 3.11 |
+| Data processing | Pandas, NumPy |
+| Machine learning | Scikit-learn, TF-IDF, Logistic Regression |
+| Visualization | Plotly |
+| Web application | Streamlit |
+| Document processing | PyMuPDF, pypdf |
+| OCR | Tesseract OCR (optional) |
+| AI integration | OpenAI API, Google Gemini API (optional) |
+| Testing | Pytest |
+| Business intelligence | Microsoft Power BI, PBIP, PBIX |
+| Version control | Git and GitHub |
+## Source and attribution
 
-1. Push the `app/` folder and the updated `requirements.txt` to this public GitHub repository.
-2. Sign in at https://share.streamlit.io and connect GitHub if prompted.
-3. Click **Create app** and select repository `ayush13122/public-procurement-opportunity-intelligence`, branch `main`, and entrypoint `app/market_explorer.py`.
-4. In **Advanced settings**, select Python 3.11 to match the locally tested environment.
-5. Click **Deploy**. After the app launches, add its generated `https://...streamlit.app` URL here and to the project README link near the top.
-
-
-
-## Data source and attribution
-
-**Source:** Assam Public Procurement Data, published through the Government of India's Open Government Data (OGD) Platform. The catalog describes procurement data for different years in Assam and links it to the Assam tender system.
+Historical source: Assam Public Procurement Data, published through India's Open Government Data Platform.
 
 - Dataset catalog: https://www.data.gov.in/catalog/assam-public-procurement-data
 - Government Open Data License - India: https://data.gov.in/Godl
-- OGD terms of use: https://www.data.gov.in/terms-of-use
+- OGD terms: https://www.data.gov.in/terms-of-use
+- Official Assam tender portal: https://assamtenders.gov.in/nicgep/app
 
-**Attribution statement:** “Source: Assam Public Procurement Data, OGD Platform India / Assam Finance Department, https://www.data.gov.in/catalog/assam-public-procurement-data. License: Government Open Data License - India, https://data.gov.in/Godl.”
+Attribution: “Source: Assam Public Procurement Data, OGD Platform India / Assam Finance Department, https://www.data.gov.in/catalog/assam-public-procurement-data. License: Government Open Data License - India, https://data.gov.in/Godl.”
 
-The dataset is included for reproducibility with this attribution. The code's MIT license does not replace the dataset's separate license. Check the dataset metadata/conditions before redistributing any updated or third-party materials.
+The code's MIT license does not replace the dataset's separate license. Review source terms before redistributing third-party data.
 
-## Limitations and careful interpretation
+## Known limitations and future work
 
-- **Historical snapshot only:** data spans FY 2016–17 to FY 2021–22 and is not an active tender feed.
-- **Taxonomy is provisional:** source categories and titles can conflict. Mapped niches are suggestions for analysis and are not verified ground truth.
-- **No live/current data integration yet:** active/archived portal searches were manually explored during feasibility testing, but no repeatable live feed is included in this release. The Streamlit app only explores the historical Assam snapshot.
-- **No win-probability claim:** there is no validated model here that estimates the probability of winning a tender.
-- **No profit prediction:** tender value does not account for delivery cost, bid price, taxes, EMD, overhead, or supplier capacity.
-- **Incomplete tender documents:** the cleaned source has very high missingness in the document ID field; eligibility must be verified from original tender documents.
-- **Coverage bias:** conclusions describe this Assam dataset, not all states or all procurement in India.
+- No repeatable live/current tender feed or automated corrigendum/status refresh.
+- The Copilot-to-Bid-Fit extractor is regex/rule based and only recognises a limited set of common field patterns; all candidates require user review.
+- Current tender status/corrigenda are not automatically checked, and official source URLs must be entered manually.
+- Taxonomy labels are provisional; classification accuracy requires further representative human review.
+- The ML model classifies broad procurement type only; it does not predict niche correctness, bid outcomes, eligibility or profitability.
+- No company-wise bid history, awarded-bid data, supplier cost structure, or validated margin targets are available for win/profit prediction.
+- Advanced table/BOQ parsing, multi-document comparison, user accounts, persistent database and arbitrary-portal adapters remain future extensions.
 
-## Roadmap (not claimed as complete)
-
-- Human review and approval of the provisional taxonomy
-- Collect and document a bounded set of current tenders from permitted public listings/manual downloads
-- Add company profile inputs and transparent Bid / No-Bid / Manual Review logic
-
-
-## Publish this project to GitHub
-
-1. Create an empty public repository named `public-procurement-opportunity-intelligence` under the GitHub account linked in the CV. Do not initialize it with another README or license because this folder already contains both.
-2. Extract/open this folder on your Windows machine and run the commands below from the repository root.
-
-```powershell
-git init -b main
-git add .
-git commit -m "Add historical procurement analysis pipeline"
-git remote add origin https://github.com/ayush13122/public-procurement-opportunity-intelligence.git
-git push -u origin main
-```
-
-GitHub will ask you to authenticate if your credentials are not already configured. Only the public repository URL becomes valid after you create the remote repository and push successfully.
+The immediate design priority is reliability and transparent evidence, not adding features just to increase project size.
 
 ## Author
 

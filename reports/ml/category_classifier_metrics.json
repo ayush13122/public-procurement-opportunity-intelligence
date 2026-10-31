@@ -1,0 +1,95 @@
+{
+  "model_name": "TF-IDF + Logistic Regression (class_weight=balanced)",
+  "purpose": "Predict source-provided Works/Goods/Services category from tender title only",
+  "input_file": "data\\processed\\assam_procurement_cleaned.csv",
+  "text_feature": "tender/title",
+  "target": "tender/mainProcurementCategory",
+  "target_classes": [
+    "Goods",
+    "Services",
+    "Works"
+  ],
+  "holdout_fiscal_year": "2021-2022",
+  "train_rows": 29542,
+  "test_rows": 4690,
+  "train_years": [
+    "2016-2017",
+    "2017-2018",
+    "2018-2019",
+    "2019-2020",
+    "2020-2021"
+  ],
+  "test_years": [
+    "2021-2022"
+  ],
+  "train_class_counts": {
+    "Works": 25086,
+    "Goods": 3463,
+    "Services": 993
+  },
+  "test_class_counts": {
+    "Works": 3561,
+    "Goods": 816,
+    "Services": 313
+  },
+  "normalized_title_overlap_rows_in_test": 385,
+  "normalized_title_overlap_pct_of_test": 8.21,
+  "model_metrics": {
+    "accuracy": 0.9334754797441365,
+    "macro_f1": 0.8672548738531783,
+    "weighted_f1": 0.9365745492598861,
+    "balanced_accuracy": 0.9155128229080297
+  },
+  "dummy_baseline_metrics": {
+    "accuracy": 0.7592750533049041,
+    "macro_f1": 0.2877227002787541,
+    "weighted_f1": 0.6553820057735459,
+    "balanced_accuracy": 0.3333333333333333
+  },
+  "per_class_metrics": {
+    "Goods": {
+      "precision": 0.8690744920993227,
+      "recall": 0.9436274509803921,
+      "f1-score": 0.9048178613396005,
+      "support": 816.0
+    },
+    "Services": {
+      "precision": 0.6391509433962265,
+      "recall": 0.865814696485623,
+      "f1-score": 0.7354138398914518,
+      "support": 313.0
+    },
+    "Works": {
+      "precision": 0.9872781065088757,
+      "recall": 0.9370963212580736,
+      "f1-score": 0.9615329203284829,
+      "support": 3561.0
+    },
+    "accuracy": 0.9334754797441365,
+    "macro avg": {
+      "precision": 0.831834514001475,
+      "recall": 0.9155128229080297,
+      "f1-score": 0.8672548738531783,
+      "support": 4690.0
+    },
+    "weighted avg": {
+      "precision": 0.9434789697471584,
+      "recall": 0.9334754797441365,
+      "f1-score": 0.9365745492598861,
+      "support": 4690.0
+    }
+  },
+  "confusion_matrix_label_order": [
+    "Goods",
+    "Services",
+    "Works"
+  ],
+  "notes": [
+    "Uses only tender title as model input; target is the dataset's source-provided broad category.",
+    "Test set is the latest fiscal year specified, with earlier fiscal years used for training.",
+    "Model confidence values are uncalibrated class probabilities, not win probabilities.",
+    "The 19-class suggested niche taxonomy is provisional and was intentionally not used as target labels.",
+    "Results describe this Assam historical snapshot and must not be presented as all-India performance.",
+    "Exact normalized title overlap is reported because repeated procurement templates can make a temporal test easier."
+  ]
+}

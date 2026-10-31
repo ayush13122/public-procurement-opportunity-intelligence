@@ -1,0 +1,3 @@
+# Optional Python dependency for local scanned-PDF OCR.
+# Tesseract OCR desktop software must also be installed separately on Windows.
+PyMuPDF>=1.24.0

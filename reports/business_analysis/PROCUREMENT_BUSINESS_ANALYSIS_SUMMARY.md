@@ -42,6 +42,4 @@
 
 ## Charts
 
-- `01_broad_category_counts.html`
-- `02_provisional_niche_counts.html`
-- `03_fiscal_year_record_counts.html`
+- `Plotly is not installed; CSV reports were still generated.`

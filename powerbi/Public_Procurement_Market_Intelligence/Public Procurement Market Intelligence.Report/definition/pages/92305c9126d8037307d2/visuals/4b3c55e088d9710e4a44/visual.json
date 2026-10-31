@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "4b3c55e088d9710e4a44",
+  "position": {
+    "x": 25,
+    "y": 620,
+    "z": 9000,
+    "width": 1228,
+    "height": 48,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "ML baseline: TF-IDF + Logistic Regression, FY 2021–22 chronological holdout. Metrics describe broad Works / Goods / Services classification only; they are not eligibility scores, win probabilities, or profit predictions. Taxonomy labels remain provisional.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "fontFamily": "Segoe UI",
+                      "bold": false,
+                      "color": "#64748B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

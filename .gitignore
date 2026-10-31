@@ -9,3 +9,28 @@ __pycache__/
 Thumbs.db
 *.log
 # This repo intentionally contains the source ZIP for reproducibility; generated cleaned data/reports are tracked.
+
+# Local secrets/configuration
+.env
+.env.*
+!.env.example
+secrets.toml
+# Local backups and private working files
+.env_backup/
+app_backup/
+backup_copilot_*/
+tests_backup/
+/Tendernotice_1 (3).pdf
+
+# Power BI local cache and working copies
+**/.pbi/
+/*.pbix
+
+# Development-only patch snapshots
+/Copilot_Persistence_and_MultiFormat_Patch/
+/COPILOT_TO_BID_FIT_PATCH_README.md
+/OPEN_FIRST.txt
+/PATCH_README*.txt
+
+# Original tender PDFs used for local testing
+/data/sample_tenders/

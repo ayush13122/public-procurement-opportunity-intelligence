@@ -1,0 +1,259 @@
+table assam_procurement_cleaned
+	lineageTag: 90edcedb-b503-41ba-9d2b-2e7537edfb47
+
+	measure 'Total Tenders (Numeric)' = DISTINCTCOUNT('assam_procurement_cleaned'[ocid])
+		formatString: #,##0
+		displayFolder: 01 | Core KPIs
+		lineageTag: 643fa5b6-6d0f-4fe1-ab5b-a7f4211ba8b4
+
+	measure 'Total Tenders' = FORMAT([Total Tenders (Numeric)], "#,##0")
+		displayFolder: 01 | Display KPIs
+		lineageTag: fed7de37-8081-4db4-9d48-d213ccc2d7a9
+
+	measure 'Unique Buyers (Numeric)' = DISTINCTCOUNT('assam_procurement_cleaned'[buyer/name])
+		formatString: #,##0
+		displayFolder: 01 | Core KPIs
+		lineageTag: bda67e49-5732-46f6-a75e-09782f441ced
+
+	measure 'Unique Buyers' = FORMAT([Unique Buyers (Numeric)], "#,##0")
+		displayFolder: 01 | Display KPIs
+		lineageTag: 5e8286bd-4421-4ebc-b69f-5ea0e6a5ddf9
+
+	measure 'Positive Value Records (Numeric)' = CALCULATE(COUNTROWS('assam_procurement_cleaned'), 'assam_procurement_cleaned'[tender/value/amount] > 0)
+		formatString: #,##0
+		displayFolder: 01 | Core KPIs
+		lineageTag: 2dd51585-86e2-4cab-b232-946b50c631d2
+
+	measure 'Positive Value Records' = FORMAT([Positive Value Records (Numeric)], "#,##0")
+		displayFolder: 01 | Display KPIs
+		lineageTag: 57bc71c1-0555-4cbd-aa51-e497a0cf0247
+
+	measure 'Zero Value Records (Numeric)' = CALCULATE(COUNTROWS('assam_procurement_cleaned'), 'assam_procurement_cleaned'[tender/value/amount] = 0)
+		formatString: #,##0
+		displayFolder: 01 | Core KPIs
+		lineageTag: 1e957aaa-7fc0-475d-9d06-b26fae155e2f
+
+	measure 'Zero Value Records' = FORMAT([Zero Value Records (Numeric)], "#,##0")
+		displayFolder: 01 | Display KPIs
+		lineageTag: 0f9442fb-03f3-41eb-bdef-821b4ce2b2be
+
+	measure 'Missing Value Records (Numeric)' = CALCULATE(COUNTROWS('assam_procurement_cleaned'), ISBLANK('assam_procurement_cleaned'[tender/value/amount]))
+		formatString: #,##0
+		displayFolder: 01 | Core KPIs
+		lineageTag: d1cd7d78-591a-4647-995b-a2346a1e2d3c
+
+	measure 'Missing Tender Values' = FORMAT([Missing Value Records (Numeric)], "#,##0")
+		displayFolder: 01 | Display KPIs
+		lineageTag: 5cb8f6fd-c1db-400c-a538-c6a579541a93
+
+	measure 'Recorded Tender Value (Numeric)' = SUM('assam_procurement_cleaned'[tender/value/amount])
+		formatString: #,##0
+		displayFolder: 02 | Tender Value
+		lineageTag: 110983e6-1aed-4d8a-9323-e9ac11558b8b
+
+	measure 'Total Value (T units)' = FORMAT(DIVIDE([Recorded Tender Value (Numeric)], 1000000000000), "0.00") & "T"
+		displayFolder: 02 | Tender Value
+		lineageTag: 58b2e75b-edc0-46b7-9241-996812aa0b75
+
+	measure 'Average Recorded Tender Value (Numeric)' = AVERAGE('assam_procurement_cleaned'[tender/value/amount])
+		formatString: #,##0.00
+		displayFolder: 02 | Tender Value
+		lineageTag: 6a6d2ca2-4fc6-44b0-a9ad-8a16972fb526
+
+	measure 'Average Tender Value (M source units)' = FORMAT(DIVIDE([Average Recorded Tender Value (Numeric)], 1000000), "0.00") & "M"
+		displayFolder: 02 | Tender Value
+		lineageTag: e1455cc0-6d74-4328-a689-8994ccf6affc
+
+	measure 'Median Positive Tender Value (Numeric)' = MEDIANX(FILTER('assam_procurement_cleaned', 'assam_procurement_cleaned'[tender/value/amount] > 0), 'assam_procurement_cleaned'[tender/value/amount])
+		formatString: #,##0.00
+		displayFolder: 02 | Tender Value
+		lineageTag: 2a23c3bc-b677-4477-9c0d-bd53af741074
+
+	measure 'Median Positive (M units)' = FORMAT(DIVIDE([Median Positive Tender Value (Numeric)], 1000000), "0.00") & "M"
+		displayFolder: 02 | Tender Value
+		lineageTag: 0b78fbc7-097a-4dab-b374-2218cea628f9
+
+	measure 'Average Positive Tender Value (Numeric)' = AVERAGEX(FILTER('assam_procurement_cleaned', 'assam_procurement_cleaned'[tender/value/amount] > 0), 'assam_procurement_cleaned'[tender/value/amount])
+		formatString: #,##0.00
+		displayFolder: 02 | Tender Value
+		lineageTag: 69f941c1-ad9a-46da-a298-95c9ac1065c7
+
+	measure 'Tender Value Coverage %' = DIVIDE([Positive Value Records (Numeric)] + [Zero Value Records (Numeric)], [Total Tenders (Numeric)])
+		formatString: 0.00%
+		displayFolder: 02 | Tender Value
+		lineageTag: 2c211652-3290-4bf0-9f40-a5fdc3fbef08
+
+	measure 'Positive Value Share %' = DIVIDE([Positive Value Records (Numeric)], [Total Tenders (Numeric)])
+		formatString: 0.00%
+		displayFolder: 02 | Tender Value
+		lineageTag: 6d118590-71a2-4a55-bad6-6ffdab3a0e19
+
+	measure 'Average Tenderers' = AVERAGE('assam_procurement_cleaned'[tender/numberOfTenderers])
+		formatString: #,##0.00
+		displayFolder: 03 | Procurement Metrics
+		lineageTag: 509d86d8-29e4-46bc-bca2-1aae3dad3632
+
+	measure 'Average Tender Period Days' = AVERAGE('assam_procurement_cleaned'[tender/tenderPeriod/durationInDays])
+		formatString: #,##0.0
+		displayFolder: 03 | Procurement Metrics
+		lineageTag: 2e806224-9d77-4c55-aae7-925247f87684
+
+	measure 'Holdout Accuracy' = 0.9335
+		formatString: 0.00%
+		displayFolder: 04 | Historical ML Model
+		lineageTag: d45a53ef-69cb-4e94-9081-59dbaadaad05
+
+	measure 'Macro F1' = 0.8673
+		formatString: 0.00%
+		displayFolder: 04 | Historical ML Model
+		lineageTag: 8e043046-c583-451c-aabd-b0651d382646
+
+	measure 'Weighted F1' = 0.9366
+		formatString: 0.00%
+		displayFolder: 04 | Historical ML Model
+		lineageTag: 83e52015-08e6-4ddb-a14d-4655c2f3976c
+
+	measure 'Balanced Accuracy' = 0.9155
+		formatString: 0.00%
+		displayFolder: 04 | Historical ML Model
+		lineageTag: 03569730-79d4-4112-95a1-e646bad8abe6
+
+	column ocid
+		dataType: string
+		lineageTag: a262dfc8-3948-4a5f-a76a-eafcee719c42
+		summarizeBy: none
+		sourceColumn: ocid
+
+	column tender/id
+		dataType: string
+		lineageTag: 160c3919-8b11-42b5-a32c-6e62bbd39bcd
+		summarizeBy: none
+		sourceColumn: tender/id
+
+	column tender/externalReference
+		dataType: string
+		lineageTag: eb4c14d6-56e4-4ef2-a7d1-2cc12f0506f6
+		summarizeBy: none
+		sourceColumn: tender/externalReference
+
+	column tender/title
+		dataType: string
+		lineageTag: db1d1138-491e-4c8c-a9e1-63a2ee91cc04
+		summarizeBy: none
+		sourceColumn: tender/title
+
+	column tender/mainProcurementCategory
+		dataType: string
+		lineageTag: 7efeccb9-f829-4f64-a0e4-46162d9860a0
+		summarizeBy: none
+		sourceColumn: tender/mainProcurementCategory
+
+	column tender/procurementMethod
+		dataType: string
+		lineageTag: a664cd94-56aa-4742-9c1f-10e9527b9265
+		summarizeBy: none
+		sourceColumn: tender/procurementMethod
+
+	column tender/contractType
+		dataType: string
+		lineageTag: 019c9b80-8610-4e7b-a868-728862e45799
+		summarizeBy: none
+		sourceColumn: tender/contractType
+
+	column tenderclassification/description
+		dataType: string
+		lineageTag: 07dc9180-7384-4567-a6ba-0594a3ad7c7d
+		summarizeBy: none
+		sourceColumn: tenderclassification/description
+
+	column tender/participationFee/0/multiCurrencyAllowed
+		dataType: string
+		lineageTag: 6bc814d2-425a-4a09-a85d-13be9c558134
+		summarizeBy: none
+		sourceColumn: tender/participationFee/0/multiCurrencyAllowed
+
+	column tender/allowTwoStageTender
+		dataType: string
+		lineageTag: ef2369f3-77f7-462a-bae7-807ee65bdcb4
+		summarizeBy: none
+		sourceColumn: tender/allowTwoStageTender
+
+	column tender/value/amount
+		dataType: double
+		lineageTag: 4ec8ade2-acbc-4ff5-b702-8b6cb3276a79
+		summarizeBy: sum
+		sourceColumn: tender/value/amount
+
+	column tender/datePublished
+		dataType: dateTime
+		lineageTag: 0feb65be-bfe3-4bee-a56f-7e4ab9406c61
+		summarizeBy: none
+		sourceColumn: tender/datePublished
+
+	column tender/tenderPeriod/durationInDays
+		dataType: int64
+		lineageTag: 2c522d80-1dff-47db-9cc7-1ec9b5279250
+		summarizeBy: average
+		sourceColumn: tender/tenderPeriod/durationInDays
+
+	column 'Payment Mode'
+		dataType: string
+		lineageTag: 527d2f26-eb64-4d5a-bcd8-471fc5c8a091
+		summarizeBy: none
+		sourceColumn: Payment Mode
+
+	column tender/stage
+		dataType: string
+		lineageTag: 1a15b333-4016-4d6b-b04b-aa997e9323b5
+		summarizeBy: none
+		sourceColumn: tender/stage
+
+	column tender/numberOfTenderers
+		dataType: double
+		lineageTag: 191562e0-1051-47ee-ae54-09eb0fcc7227
+		summarizeBy: average
+		sourceColumn: tender/numberOfTenderers
+
+	column tender/bidOpening/date
+		dataType: dateTime
+		lineageTag: ad0c864d-bc7c-4778-94bb-a18cb557c4ed
+		summarizeBy: none
+		sourceColumn: tender/bidOpening/date
+
+	column tender/documents/id
+		dataType: string
+		lineageTag: bdc59b44-a1c1-4c71-9533-fbfe6f36c766
+		summarizeBy: none
+		sourceColumn: tender/documents/id
+
+	column buyer/name
+		dataType: string
+		lineageTag: 871c2abe-2b42-4a0b-8511-8c9a92d19f37
+		summarizeBy: none
+		sourceColumn: buyer/name
+
+	column fiscal_year
+		dataType: string
+		lineageTag: 8dba50e5-a4a2-4cdb-9a46-494a00082fd2
+		summarizeBy: none
+		sourceColumn: fiscal_year
+
+	column source_csv_file
+		dataType: string
+		isHidden
+		lineageTag: 9a119b7d-5be1-4dd8-898f-4c14c96ba672
+		summarizeBy: none
+		sourceColumn: source_csv_file
+
+	partition assam_procurement_cleaned = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(pCsvPath), [Delimiter=",", Columns=21, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    ChangedTypes = Table.TransformColumnTypes(PromotedHeaders, {{"ocid", type text}, {"tender/id", type text}, {"tender/externalReference", type text}, {"tender/title", type text}, {"tender/mainProcurementCategory", type text}, {"tender/procurementMethod", type text}, {"tender/contractType", type text}, {"tenderclassification/description", type text}, {"tender/participationFee/0/multiCurrencyAllowed", type text}, {"tender/allowTwoStageTender", type text}, {"tender/value/amount", type number}, {"tender/datePublished", type datetime}, {"tender/tenderPeriod/durationInDays", Int64.Type}, {"Payment Mode", type text}, {"tender/stage", type text}, {"tender/numberOfTenderers", type number}, {"tender/bidOpening/date", type datetime}, {"tender/documents/id", type text}, {"buyer/name", type text}, {"fiscal_year", type text}, {"source_csv_file", type text}}, "en-US")
+				in
+				    ChangedTypes
+
+	annotation PBI_ResultType = Table
+

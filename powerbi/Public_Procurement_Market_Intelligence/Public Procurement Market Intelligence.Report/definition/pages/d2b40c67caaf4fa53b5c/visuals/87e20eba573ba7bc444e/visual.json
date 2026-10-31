@@ -1,0 +1,39 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.9.0/schema.json",
+  "name": "87e20eba573ba7bc444e",
+  "position": {
+    "x": 25,
+    "y": 680,
+    "z": 9000,
+    "width": 1228,
+    "height": 18,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Value figures are shown in source units; currency / scale is not independently verified in the dataset metadata.",
+                    "textStyle": {
+                      "fontSize": "8pt",
+                      "fontFamily": "Segoe UI",
+                      "bold": false,
+                      "color": "#64748B"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

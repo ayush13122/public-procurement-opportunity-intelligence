@@ -1,0 +1,146 @@
+{
+  "name": "Procurement_Intelligence_Navy_Teal_20261031.json",
+  "dataColors": [
+    "#0D9488",
+    "#0EA5E9",
+    "#F59E0B",
+    "#7C3AED",
+    "#2563EB",
+    "#14B8A6",
+    "#F97316",
+    "#64748B"
+  ],
+  "background": "#F3F7FB",
+  "foreground": "#17324D",
+  "tableAccent": "#0D9488",
+  "good": "#16A34A",
+  "neutral": "#F59E0B",
+  "bad": "#DC5B5B",
+  "maximum": "#0F766E",
+  "center": "#CDECE8",
+  "minimum": "#EFF6FF",
+  "null": "#E2E8F0",
+  "textClasses": {
+    "callout": {
+      "fontSize": 24,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#17324D"
+    },
+    "title": {
+      "fontSize": 12,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#17324D"
+    },
+    "header": {
+      "fontSize": 10,
+      "fontFace": "Segoe UI Semibold",
+      "color": "#244761"
+    },
+    "label": {
+      "fontSize": 9,
+      "fontFace": "Segoe UI",
+      "color": "#64748B"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "title": [
+          {
+            "fontFace": "Segoe UI Semibold",
+            "fontSize": 12,
+            "color": {
+              "solid": {
+                "color": "#17324D"
+              }
+            }
+          }
+        ],
+        "background": [
+          {
+            "show": true,
+            "color": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "cardVisual": {
+      "*": {
+        "outline": [
+          {
+            "show": false
+          }
+        ],
+        "callout": [
+          {
+            "fontSize": 26,
+            "fontFace": "Segoe UI Semibold",
+            "fontColor": {
+              "solid": {
+                "color": "#17324D"
+              }
+            }
+          }
+        ],
+        "categoryLabels": [
+          {
+            "fontSize": 10,
+            "fontFace": "Segoe UI",
+            "fontColor": {
+              "solid": {
+                "color": "#64748B"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "tableEx": {
+      "*": {
+        "columnHeaders": [
+          {
+            "fontFace": "Segoe UI Semibold",
+            "fontSize": 10,
+            "fontColor": {
+              "solid": {
+                "color": "#FFFFFF"
+              }
+            },
+            "backColor": {
+              "solid": {
+                "color": "#244761"
+              }
+            }
+          }
+        ],
+        "values": [
+          {
+            "fontFace": "Segoe UI",
+            "fontSize": 9,
+            "fontColor": {
+              "solid": {
+                "color": "#17324D"
+              }
+            }
+          }
+        ],
+        "grid": [
+          {
+            "gridVertical": false,
+            "gridHorizontal": true,
+            "outlineColor": {
+              "solid": {
+                "color": "#E2E8F0"
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

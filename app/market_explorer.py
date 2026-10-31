@@ -121,7 +121,7 @@ with left_chart:
     )
     fig = px.bar(category_counts, x="tender/mainProcurementCategory", y="records", text="records")
     fig.update_layout(xaxis_title="Original broad category", yaxis_title="Tender records", showlegend=False)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 with right_chart:
     st.subheader("Top provisional business niches")
     niche_counts = (
@@ -131,7 +131,7 @@ with right_chart:
     )
     fig = px.bar(niche_counts.sort_values("records"), x="records", y="suggested_analytical_niche", orientation="h", text="records")
     fig.update_layout(xaxis_title="Tender records", yaxis_title="Provisional niche", showlegend=False)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 left_chart, right_chart = st.columns(2)
 with left_chart:
@@ -142,7 +142,7 @@ with left_chart:
     year_counts = year_counts.sort_values(["_sort_year", "fiscal_year"], na_position="last")
     fig = px.line(year_counts, x="fiscal_year", y="records", markers=True)
     fig.update_layout(xaxis_title="Fiscal year in source", yaxis_title="Tender records")
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 with right_chart:
     st.subheader("Top buyer organizations")
     buyer_counts = (
@@ -151,7 +151,7 @@ with right_chart:
     )
     fig = px.bar(buyer_counts.sort_values("records"), x="records", y="buyer/name", orientation="h", text="records")
     fig.update_layout(xaxis_title="Tender records", yaxis_title="Buyer / department", showlegend=False)
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width="stretch")
 
 st.subheader("Tender records")
 display_columns = [
@@ -174,7 +174,7 @@ renames = {original: label for original, label in display_columns if original in
 view = filtered[list(renames)].rename(columns=renames).copy()
 if "Publication date" in view.columns:
     view["Publication date"] = pd.to_datetime(view["Publication date"], errors="coerce").dt.strftime("%Y-%m-%d")
-st.dataframe(view, use_container_width=True, hide_index=True, height=420)
+st.dataframe(view, width="stretch", hide_index=True, height=420)
 
 csv_bytes = filtered.to_csv(index=False).encode("utf-8-sig")
 st.download_button(

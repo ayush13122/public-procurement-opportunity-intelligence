@@ -1,0 +1,2 @@
+# Optional Google Gemini API SDK. HttpRetryOptions is required to disable nested SDK retries.
+google-genai>=2.34.0,<3.0.0

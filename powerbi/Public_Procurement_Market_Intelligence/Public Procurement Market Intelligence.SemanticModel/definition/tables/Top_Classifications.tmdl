@@ -1,0 +1,27 @@
+table Top_Classifications
+	lineageTag: af1ea58e-2713-4779-9555-04d1006f5e94
+
+	column tenderclassification/description
+		dataType: string
+		lineageTag: e5d6536d-914f-4a8a-b31b-110006134b3e
+		summarizeBy: none
+		sourceColumn: tenderclassification/description
+
+	column tender_records
+		dataType: int64
+		lineageTag: 95ddcfce-5e8a-488d-b1a3-32758ce0b769
+		summarizeBy: sum
+		sourceColumn: tender_records
+
+	partition Top_Classifications = m
+		mode: import
+		source =
+				let
+				    Source = #"assam_procurement_cleaned",
+				    NonBlank = Table.SelectRows(Source, each [#"tenderclassification/description"] <> null and Text.Trim([#"tenderclassification/description"]) <> ""),
+				    Grouped = Table.Group(NonBlank, {"tenderclassification/description"}, {{"tender_records", each Table.RowCount(_), Int64.Type}}),
+				    Sorted = Table.Sort(Grouped, {{"tender_records", Order.Descending}, {"tenderclassification/description", Order.Ascending}}),
+				    Top15 = Table.FirstN(Sorted, 15)
+				in
+				    Top15
+

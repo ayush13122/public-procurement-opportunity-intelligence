@@ -1,0 +1,5 @@
+expression pCsvPath = "D:\Github\public-procurement-opportunity-intelligence\data\processed\assam_procurement_cleaned.csv" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a895f1a7-814a-4b7e-a2e4-c056e14105e9
+
+	annotation PBI_ResultType = Text
+

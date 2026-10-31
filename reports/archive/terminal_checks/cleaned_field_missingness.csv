@@ -1,0 +1,22 @@
+column,missing_count,missing_pct
+tender/documents/id,34104,99.63
+tender/numberOfTenderers,2573,7.52
+tender/value/amount,1580,4.62
+tender/stage,386,1.13
+ocid,0,0.0
+tender/id,0,0.0
+tender/externalReference,0,0.0
+tender/title,0,0.0
+tender/mainProcurementCategory,0,0.0
+tender/procurementMethod,0,0.0
+tender/contractType,0,0.0
+tenderclassification/description,0,0.0
+tender/participationFee/0/multiCurrencyAllowed,0,0.0
+tender/allowTwoStageTender,0,0.0
+tender/datePublished,0,0.0
+tender/tenderPeriod/durationInDays,0,0.0
+Payment Mode,0,0.0
+tender/bidOpening/date,0,0.0
+buyer/name,0,0.0
+fiscal_year,0,0.0
+source_csv_file,0,0.0
