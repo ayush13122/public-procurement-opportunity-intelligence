@@ -1,5 +1,7 @@
 # AI-Powered Public Procurement Intelligence Platform
 
+[![Live Dashboard](https://img.shields.io/badge/Live%20Dashboard-Open%20App-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://procurement-intelligence-ayush.streamlit.app/)
+
 A reproducible Python project that combines historical procurement analytics, an ML tender-category classifier, a document-grounded tender Q&A copilot, and an explainable rule-based company Bid-Fit screen.
 
 > **Scope note:** This is a portfolio/prototype decision-support tool. It is not an official tender portal, legal eligibility opinion, tender-win prediction model, or guaranteed-profit calculator. Historical analysis is based on an Assam dataset for FY 2016–17 to FY 2021–22. Current tender discovery/status revalidation and automatic extraction of all tender formats are not implemented.
