@@ -476,15 +476,19 @@ if active_document:
     except Exception:
         pass
     gemini_key_available = bool(os.getenv("GEMINI_API_KEY", "").strip())
-    if st.session_state.get("copilot_extraction_mode_version") != DOCUMENT_PROCESSING_VERSION:
-        st.session_state["copilot_field_extraction_mode"] = "Rule-based (offline)"
-        st.session_state["copilot_extraction_mode_version"] = DOCUMENT_PROCESSING_VERSION
+    default_extraction_mode = (
+        "Gemini AI" if gemini_key_available else "Rule-based (offline)"
+    )
+    extraction_mode_version = "2026.10.31-gemini-default-r1"
+    if st.session_state.get("copilot_extraction_mode_version") != extraction_mode_version:
+        st.session_state["copilot_field_extraction_mode"] = default_extraction_mode
+        st.session_state["copilot_extraction_mode_version"] = extraction_mode_version
     elif "copilot_field_extraction_mode" not in st.session_state:
-        st.session_state["copilot_field_extraction_mode"] = "Rule-based (offline)"
+        st.session_state["copilot_field_extraction_mode"] = default_extraction_mode
     extraction_mode = st.radio(
         "Field extraction method",
         options=["Gemini AI", "Rule-based (offline)"],
-        index=1,
+        index=0 if gemini_key_available else 1,
         horizontal=True,
         help="Rule-based (offline) is the default and uses the uploaded text/OCR locally. Select Gemini only when your API quota is available; Gemini errors must not block the local result.",
         key="copilot_field_extraction_mode",
